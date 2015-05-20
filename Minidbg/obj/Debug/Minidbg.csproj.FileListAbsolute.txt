@@ -1,1 +1,0 @@
-c:\users\zhizhu\documents\visual studio 2015\Projects\Minidbg\Minidbg\bin\Debug\Minidbg.exe.config
