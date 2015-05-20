@@ -34,7 +34,7 @@ namespace Minidbg.MinidbgShell
         {
             public static void Run(string[] args)
             {
-                    
+                        
             }
         }
     }

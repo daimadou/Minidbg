@@ -60,7 +60,6 @@
     <Compile Include="IMetadataImport.cs" />
     <Compile Include="RawAssemblyAttributes.cs" />
     <Compile Include="WindowsImports.cs" />
-    <Compile Include="..\..\VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System">
@@ -68,7 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\mdbg.snk" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
