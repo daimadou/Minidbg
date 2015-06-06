@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace Minidbg.MinidbgShell
 {
     using MinidbgEngine;
-    public class Shell
+    public class MiniDbgShell
     {
         private MinidbgEngine m_MinidbgEngine;
+        private Commands m_Commands;
 
         public MinidbgEngine Debugger
         {
@@ -24,17 +25,40 @@ namespace Minidbg.MinidbgShell
             }
         }
 
+        public void RunCommand(string []args)
+        {
+            string commands = args[0];
+            switch(commands)
+            {
+                case "run":
+                    m_Commands.Run(args.Skip(1).ToArray());
+                    break;
 
-        public void ShellInit()
+                default:
+                    Console.WriteLine("Can't find any things");
+                    break;
+            }
+        }
+
+        public MiniDbgShell()
         {
             Debugger = new MinidbgEngine();
+            m_Commands = new Commands(this);
         }
 
         class Commands
         {
-            public static void Run(string[] args)
+            private MiniDbgShell m_shell;
+
+            public Commands(MiniDbgShell shell)
             {
-                        
+                m_shell = shell;
+            }
+            public void Run(string[] args)
+            {
+                string appPath = args[0];
+                string appArgs = args[1];
+                m_shell.Debugger.CurrentProcess.CreateProcess(appPath, appArgs);
             }
         }
     }

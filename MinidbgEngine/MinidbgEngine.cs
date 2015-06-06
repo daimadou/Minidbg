@@ -10,6 +10,11 @@ namespace Minidbg.MinidbgEngine
     {
         private MinidbgProcess m_MinidbgProcess;
 
+        public MinidbgEngine()
+        {
+            m_MinidbgProcess = new MinidbgProcess(this);
+        }
+
         public MinidbgProcess CurrentProcess
         {
             get
